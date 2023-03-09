@@ -1,5 +1,5 @@
 pipelines:
-  - name: allowedFailuretests
+  - name: stepsFour
     steps:
       - name: step1aftests
         type: Bash
