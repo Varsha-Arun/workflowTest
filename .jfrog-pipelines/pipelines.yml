@@ -14,4 +14,20 @@ pipelines:
         execution:
           onExecute:
             - echo 'success'
-            - exit 1
+      - name: step3aftests
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step1aftests
+        execution:
+          onExecute:
+            - echo 'success'
+      - name: step4aftests
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step2aftests
+            - name: step3aftests
+        execution:
+          onExecute:
+            - echo 'success'          
