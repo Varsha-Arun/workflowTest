@@ -1,0 +1,19 @@
+pipelines:
+  - name: allowedFailuretests
+    steps:
+      - name: step1aftests
+        type: Bash
+        execution:
+          onExecute:
+            - printenv
+            - exit 1
+      - name: step2aftests
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step1aftests
+              status: 
+                - failure
+        execution:
+          onExecute:
+            - echo 'success'
