@@ -12,8 +12,6 @@ pipelines:
         configuration:
           inputSteps:
             - name: step1aftests
-              status: 
-                - failure
         execution:
           onExecute:
             - echo 'success'
