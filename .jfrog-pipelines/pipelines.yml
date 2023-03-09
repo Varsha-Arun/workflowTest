@@ -6,7 +6,6 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - exit 1
       - name: step2aftests
         type: Bash
         configuration:
@@ -15,3 +14,4 @@ pipelines:
         execution:
           onExecute:
             - echo 'success'
+            - exit 1
