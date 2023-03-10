@@ -2,7 +2,7 @@ resources:
   - name: triggerStepEvery1min
     type: CronTrigger
     configuration:
-      interval: 0/1 * * * *
+      interval: * * * * *
 
   - name: triggerStepEvery1minfrom20
     type: CronTrigger
