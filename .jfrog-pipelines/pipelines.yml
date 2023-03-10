@@ -101,7 +101,7 @@ pipelines:
             - echo 'success' 
           
   - name: pipelineTriggerEveryMinute
-  
+    steps:
       - name: stepEveryMinFrom40Sec
         type: Bash
         configuration:
