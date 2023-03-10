@@ -1,8 +1,32 @@
+resources:
+  - name: triggerStepEvery1min
+     type: CronTrigger
+     configuration:
+       interval: * * * * *
+
+  - name: triggerStepEvery1minfrom20
+     type: CronTrigger
+     configuration:
+       interval: 20/1 * * * *
+     
+  - name: triggerStepEvery1minfrom40
+     type: CronTrigger
+     configuration:
+       interval: 40/1 * * * *
+       
+  - name: triggerStepEvery1minfrom50
+     type: CronTrigger
+     configuration:
+       interval: 50/1 * * * *
+       
 pipelines:
   - name: stepsFour
     steps:
       - name: step1aftests
         type: Bash
+        configuration:
+          inputResources:
+            - name: triggerStepEvery1min
         execution:
           onExecute:
             - printenv
@@ -31,3 +55,85 @@ pipelines:
         execution:
           onExecute:
             - echo 'success'          
+      - name: stepEveryMinFrom20Sec
+        type: Bash
+        configuration:
+          inputResources:
+            - name: triggerStepEvery1minfrom20
+        execution:
+          onExecute:
+            - echo 'success'  
+
+      - name: stepEveryMinFrom50Sec
+        type: Bash
+        configuration:
+          inputResources:
+            - name: triggerStepEvery1minfrom50
+        execution:
+          onExecute:
+            - echo 'success'  
+            
+      - name: step2test
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: stepEveryMinFrom20Sec
+        execution:
+          onExecute:
+            - echo 'success' 
+            
+      - name: step3test
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step2test
+        execution:
+          onExecute:
+            - echo 'success' 
+            
+      - name: step4test
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step3test
+        execution:
+          onExecute:
+            - echo 'success' 
+          
+  - name: pipelineTriggerEveryMinute
+  
+      - name: stepEveryMinFrom40Sec
+        type: Bash
+        configuration:
+          inputResources:
+            - name: triggerStepEvery1minfrom40
+        execution:
+          onExecute:
+            - echo 'success'  
+                        
+      - name: step2t
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: stepEveryMinFrom40Sec
+        execution:
+          onExecute:
+            - echo 'success' 
+            
+      - name: step3t
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step2t
+        execution:
+          onExecute:
+            - echo 'success' 
+            
+      - name: step4t
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step3t
+        execution:
+          onExecute:
+            - echo 'success' 
