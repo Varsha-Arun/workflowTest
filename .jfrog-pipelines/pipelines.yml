@@ -54,7 +54,8 @@ pipelines:
             - name: step3aftests
         execution:
           onExecute:
-            - echo 'success'          
+            - echo 'success' 
+            - sleep 30s
       - name: stepEveryMinFrom20Sec
         type: Bash
         configuration:
@@ -103,6 +104,7 @@ pipelines:
         execution:
           onExecute:
             - echo 'success' 
+            - sleep 30s
           
   - name: pipelineTriggerEveryMinute
     steps:
@@ -132,6 +134,7 @@ pipelines:
         execution:
           onExecute:
             - echo 'success' 
+            - sleep 30s
             
       - name: step4t
         type: Bash
