@@ -90,7 +90,7 @@ pipelines:
         type: Bash
         configuration:
           inputSteps:
-            - name: step2test
+            - name: stepEveryMinFrom20Sec
         execution:
           onExecute:
             - echo 'success' 
@@ -99,7 +99,7 @@ pipelines:
         type: Bash
         configuration:
           inputSteps:
-            - name: step3test
+            - name: stepEveryMinFrom20Sec
         execution:
           onExecute:
             - echo 'success' 
