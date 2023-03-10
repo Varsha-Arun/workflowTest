@@ -60,6 +60,8 @@ pipelines:
         configuration:
           inputResources:
             - name: triggerStepEvery1minfrom20
+          inputSteps: 
+            - name: step4aftests
         execution:
           onExecute:
             - echo 'success'  
@@ -67,6 +69,8 @@ pipelines:
       - name: stepEveryMinFrom50Sec
         type: Bash
         configuration:
+          inputSteps: 
+            - name: step4aftests
           inputResources:
             - name: triggerStepEvery1minfrom50
         execution:
