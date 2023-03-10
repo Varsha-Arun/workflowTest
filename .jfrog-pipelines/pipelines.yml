@@ -1,23 +1,23 @@
 resources:
   - name: triggerStepEvery1min
-     type: CronTrigger
-     configuration:
-       interval: * * * * *
+    type: CronTrigger
+    configuration:
+      interval: 0/1 * * * *
 
   - name: triggerStepEvery1minfrom20
-     type: CronTrigger
-     configuration:
-       interval: 20/1 * * * *
+    type: CronTrigger
+    configuration:
+      interval: 20/1 * * * *
      
   - name: triggerStepEvery1minfrom40
-     type: CronTrigger
-     configuration:
-       interval: 40/1 * * * *
+    type: CronTrigger
+    configuration:
+      interval: 40/1 * * * *
        
   - name: triggerStepEvery1minfrom50
-     type: CronTrigger
-     configuration:
-       interval: 50/1 * * * *
+    type: CronTrigger
+    configuration:
+      interval: 50/1 * * * *
        
 pipelines:
   - name: stepsFour
