@@ -12,7 +12,7 @@ resources:
   - name: triggerStepEvery1minfrom40
     type: CronTrigger
     configuration:
-      interval: '40/1 * * * *'
+      interval: '*/1 * * * *'
        
   - name: triggerStepEvery1minfrom50
     type: CronTrigger
