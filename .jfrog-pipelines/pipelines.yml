@@ -1,146 +1,146 @@
-# resources:
-#   - name: triggerStepEvery1min
-#     type: CronTrigger
-#     configuration:
-#       interval: '* * * * *'
+resources:
+  - name: triggerStepEvery1min
+    type: CronTrigger
+    configuration:
+      interval: '* * * * *'
 
-#   - name: triggerStepEvery1minfrom20
-#     type: CronTrigger
-#     configuration:
-#       interval: '*/1 * * * *'
+  - name: triggerStepEvery1minfrom20
+    type: CronTrigger
+    configuration:
+      interval: '*/1 * * * *'
      
-#   - name: triggerStepEvery1minfrom40
-#     type: CronTrigger
-#     configuration:
-#       interval: '*/1 * * * *'
+  - name: triggerStepEvery1minfrom40
+    type: CronTrigger
+    configuration:
+      interval: '*/1 * * * *'
        
-#   - name: triggerStepEvery1minfrom50
-#     type: CronTrigger
-#     configuration:
-#       interval: '* * * * *'
+  - name: triggerStepEvery1minfrom50
+    type: CronTrigger
+    configuration:
+      interval: '* * * * *'
        
-# pipelines:
-#   - name: stepsFour
-#     steps:
-#       - name: step1aftests
-#         type: Bash
-#         configuration:
-#           inputResources:
-#             - name: triggerStepEvery1min
-#         execution:
-#           onExecute:
-#             - printenv
-#       - name: step2aftests
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: step1aftests
-#         execution:
-#           onExecute:
-#             - echo 'success'
-#       - name: step3aftests
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: step1aftests
-#         execution:
-#           onExecute:
-#             - echo 'success'
-#       - name: step4aftests
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: step2aftests
-#             - name: step3aftests
-#         execution:
-#           onExecute:
-#             - echo 'success' 
-#             - sleep 30s
-#       - name: stepEveryMinFrom20Sec
-#         type: Bash
-#         configuration:
-#           inputResources:
-#             - name: triggerStepEvery1minfrom20
-#           inputSteps: 
-#             - name: step4aftests
-#         execution:
-#           onExecute:
-#             - echo 'success'  
+pipelines:
+  - name: stepsFour
+    steps:
+      - name: step1aftests
+        type: Bash
+        configuration:
+          inputResources:
+            - name: triggerStepEvery1min
+        execution:
+          onExecute:
+            - printenv
+      - name: step2aftests
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step1aftests
+        execution:
+          onExecute:
+            - echo 'success'
+      - name: step3aftests
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step1aftests
+        execution:
+          onExecute:
+            - echo 'success'
+      - name: step4aftests
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step2aftests
+            - name: step3aftests
+        execution:
+          onExecute:
+            - echo 'success' 
+            - sleep 30s
+      - name: stepEveryMinFrom20Sec
+        type: Bash
+        configuration:
+          inputResources:
+            - name: triggerStepEvery1minfrom20
+          inputSteps: 
+            - name: step4aftests
+        execution:
+          onExecute:
+            - echo 'success'  
 
-#       - name: stepEveryMinFrom50Sec
-#         type: Bash
-#         configuration:
-#           inputSteps: 
-#             - name: step4aftests
-#           inputResources:
-#             - name: triggerStepEvery1minfrom50
-#         execution:
-#           onExecute:
-#             - echo 'success'  
+      - name: stepEveryMinFrom50Sec
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: step4aftests
+          inputResources:
+            - name: triggerStepEvery1minfrom50
+        execution:
+          onExecute:
+            - echo 'success'  
             
-#       - name: step2test
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: stepEveryMinFrom20Sec
-#         execution:
-#           onExecute:
-#             - echo 'success' 
+      - name: step2test
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: stepEveryMinFrom20Sec
+        execution:
+          onExecute:
+            - echo 'success' 
             
-#       - name: step3test
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: stepEveryMinFrom20Sec
-#         execution:
-#           onExecute:
-#             - echo 'success' 
+      - name: step3test
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: stepEveryMinFrom20Sec
+        execution:
+          onExecute:
+            - echo 'success' 
             
-#       - name: step4test
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: stepEveryMinFrom20Sec
-#         execution:
-#           onExecute:
-#             - echo 'success' 
-#             - sleep 30s
+      - name: step4test
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: stepEveryMinFrom20Sec
+        execution:
+          onExecute:
+            - echo 'success' 
+            - sleep 30s
           
-#   - name: pipelineTriggerEveryMinute
-#     steps:
-#       - name: stepEveryMinFrom40Sec
-#         type: Bash
-#         configuration:
-#           inputResources:
-#             - name: triggerStepEvery1minfrom40
-#         execution:
-#           onExecute:
-#             - echo 'success'  
+  - name: pipelineTriggerEveryMinute
+    steps:
+      - name: stepEveryMinFrom40Sec
+        type: Bash
+        configuration:
+          inputResources:
+            - name: triggerStepEvery1minfrom40
+        execution:
+          onExecute:
+            - echo 'success'  
                         
-#       - name: step2t
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: stepEveryMinFrom40Sec
-#         execution:
-#           onExecute:
-#             - echo 'success' 
+      - name: step2t
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: stepEveryMinFrom40Sec
+        execution:
+          onExecute:
+            - echo 'success' 
             
-#       - name: step3t
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: step2t
-#         execution:
-#           onExecute:
-#             - echo 'success' 
-#             - sleep 30s
+      - name: step3t
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step2t
+        execution:
+          onExecute:
+            - echo 'success' 
+            - sleep 30s
             
-#       - name: step4t
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: step3t
-#         execution:
-#           onExecute:
-#             - echo 'success' 
+      - name: step4t
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step3t
+        execution:
+          onExecute:
+            - echo 'success' 
